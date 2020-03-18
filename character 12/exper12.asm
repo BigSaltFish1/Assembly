@@ -12,7 +12,7 @@ start:
     cld
     rep movsb                  ; 安装do0 代码
 
-; 更新中断向量表，向量表中，每个向量v的	v[0:1] 放着cs ，v[2:3] 放着ip
+                               ; 更新中断向量表，向量表中，每个向量v的	v[0:1] 放着cs ，v[2:3] 放着ip
 
     mov ax,0
     mov es,ax
@@ -23,7 +23,7 @@ start:
 
 do0:
     jmp short do0start
-    db 'divide error'
+    db 'divide error'          ; 显示用的字符串保存在不会被修改的区域
 
 do0start:
     mov ax,cs
